@@ -1,0 +1,3648 @@
+<!DOCTYPE html>
+<html xml:lang="en-US" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en-US"><!-- $Id: main.tt2 12687 2016-02-17 03:02:24Z sikeda $ --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="generator" content="Sympa 6.2.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<title> Duke University Mailing Lists - lists </title>
+
+<!-- $Id: head_ui.tt2 12696 2016-02-24 13:29:15Z david.verdin $ -->
+<!-- Jquery-ui -->
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/jquery-ui.css">
+
+<!-- Jqplot -->
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/jquery.css">
+
+<!-- Font css -->
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/font-awesome.css">
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation-icons.css">
+
+<!-- Foundation -->
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation.css">
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/normalize.css">
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/responsive-tables.css">
+
+<style>
+  select[multiple], select[size] { height: auto; background-image: none; }
+</style>
+
+
+<link rel="stylesheet" href="Duke%20University%20Mailing%20Lists%20-%20lists_files/style.css" media="screen" title="Sympa CSS">
+
+
+<style>
+  #loadingText span:before {
+    content: "Please Wait...";
+  }
+</style>
+
+<!-- $Id: css_ie.tt2 11846 2015-01-15 04:15:17Z sikeda $ -->
+
+<!-- Specific css for IE -->
+
+<!--[if lte IE 8]>
+<style type="text/css">
+
+/* Workaround for "noscript ghost" bug */
+noscript {
+          display: block;
+          }
+
+</style>
+<![endif]-->
+
+<!--[if IE 7]>
+<style type="text/css">
+
+#subnav {
+          position:absolute;
+	  left:25em;
+          }
+
+#bandeau_top .login .MainMenuLinks {
+	                             margin-top:0.2em;
+           	                     }
+
+</style>
+<![endif]-->
+
+
+<!--[if  lte IE 7]>
+<style type="text/css">
+
+ul#MainMenuLinks {
+                   margin-left:-3em;
+                   }
+
+a.input {
+          padding: 0 0.3em;
+          }
+
+/* "vertical-align: baseline" aligns form fields on bottom of widgets */
+form input,
+form textarea,
+form select {
+             vertical-align: middle;
+             }
+.MainMenuLinks {
+                margin-bottom: 0.2em;
+                vertical-align: middle;
+                }
+
+/* Workaround for "peek-a-boo" bug. */
+a.MainMenuLinks,
+a.MainMenuLinks:hover,
+a.MainMenuLinksCurrentPage,
+a.MainMenuLinksCurrentPage:hover {
+                                  position: relative;
+                                  }
+
+</style>
+<![endif]-->
+
+
+
+<!--[if lte IE 6]>
+<style type="text/css">
+
+#logo {
+        position:absolute;
+        top:0.5em;
+        left:-5em;
+        z-index:510;
+        }
+
+#Stretcher {
+             width:99.5%;
+             }
+
+#subnav {
+          width:100%;
+	  background-color:#0680CD;
+          border:1px solid #f2f6f9;
+          border-width: 0 1px 0 0;
+          }
+
+#nav {
+       width:99%;
+       }
+
+#Footer {
+          margin: 0.5em 0.8em;
+          }
+
+#bandeau_top .login .MainMenuLinks {
+	                             margin-top:0;
+           	                     }
+
+
+</style>
+<![endif]-->
+
+<!-- end  css_ie.tt2 -->
+
+
+
+
+<!-- the following CSS have to be improved before to be used -->
+<!-- <link rel="stylesheet" href="https://lists.duke.edu/static-sympa/css/duke.edu/print.css" media="print" /> -->
+<!-- <link rel="alternative stylesheet" href="https://lists.duke.edu/static-sympa/css/duke.edu/fullPage.css" media="screen" title="View Full Page" /> -->
+<!-- <link rel="alternative stylesheet" href="https://lists.duke.edu/static-sympa/css/duke.edu/print-preview.css" media="screen" title="Print Preview" /> -->
+
+
+<link rel="shortcut icon" href="https://lists.duke.edu/static-sympa/icons/favicon_duke.png">
+
+
+<!-- end head_ui.tt2 -->
+
+
+<!-- $Id: head_javascript.tt2 12641 2016-01-22 15:36:55Z lumineau $ -->
+
+<script>
+<!--
+// this script only contains variable initializations.
+
+// Miscellaneous vars
+var path_cgi = '/sympa/';
+var lang = 'en-US';
+//-->
+</script>
+
+<script>
+<!--
+// A few configuration settings
+var CROSSHAIRS_LOCATION = 'https://lists.duke.edu/static-sympa/icons/crosshairs.png';
+var HUE_SLIDER_LOCATION = 'https://lists.duke.edu/static-sympa/icons/h.png';
+var HUE_SLIDER_ARROWS_LOCATION = 'https://lists.duke.edu/static-sympa/icons/position.png';
+var SAT_VAL_SQUARE_LOCATION = 'https://lists.duke.edu/static-sympa/icons/sv.png';
+
+// Variables used by the calendar js.
+var pDefaut = { 
+	"mois" : "January:February:March:April:May:June:July:August:September:October:November:December".split(":"),
+	"jour" : "Sun:Mon:Tue:Wed:Thu:Fri:Sat".split(":"),
+	"jLib" : "Sunday:Monday:Tuesday:Wednesday:Thursday:Friday:Saturday".split(":"),
+	"titre" : "Calendar",
+	"aujourdhui" : "today",
+	"debutSemaine" : 1,                      /*debut de la semaine 0=dim,1=lun,...*/
+	"jPause" : {6:true,0:true},              /*jour de pause de la semaine (samedi & dimanche)*/
+	"jFeriee": {"1-1":"Jour de l'an","1-5":"Fête du travail","8-5":"Armistice 39-45","14-7":"Fête nationale","15-8":"Ascension","1-11":"Armistice 14-18","11-11":"Toussaint","25-12":"Noël"} ,
+	"moisMoins" : "<", "moisPlus" : ">",     /*navigation par mois*/ 
+	"anneeMoins" : "<<", "anneePlus" : ">>", /*navigation par annee*/
+	"format" : "%j-%m-%a",                   /*format de sortie : %j = jour, %m = mois, %a =année*/ 
+	"date" : null, "ddeb" : "", "dfin" : "",
+	"dateMin" : null, "dateMax" : null
+}
+
+
+var param_ddeb = {"dfin" : "date_fin", "titre" : "Start date" };
+var param_dfin = {"ddeb" : "date_deb", "titre" : "End date"  };
+
+var tempo = new Array(); /*gestion de la fermeture des calendriers quand on perd le focus*/
+var nomove={"TR":0,"CENTER":0,"B":0,"P":0,"U":0,"I":0,"DIV":0,"A":0,"FONT":0,"LI":0,"PRE":0,"SPAN":0,"SUB":0,"SUP":0,"FORM":0};
+//var nomove={"TD":0,"TABLE":0};
+
+//-->
+</script>
+
+<!-- Now retrieving the javascript files -->
+
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jquery_002.js"></script>
+
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jquery-ui.js"></script>
+
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jquery.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jqplot_003.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jqplot_004.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jqplot_002.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/jqplot.js"></script>
+
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/sympa.js"></script>
+
+<!-- Foundation and other ui adaptation -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://lists.duke.edu/static-sympa/external/html5shiv/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="Duke%20University%20Mailing%20Lists%20-%20lists_files/respond.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/modernizr.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/fastclick.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/placeholder.js"></script>
+<!--<script src="https://lists.duke.edu/static-sympa/external/foundation/js/vendor/jquery.js"></script>-->
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation_003.js"></script><meta class="foundation-data-attribute-namespace"><meta class="foundation-mq-xxlarge"><meta class="foundation-mq-xlarge"><meta class="foundation-mq-large"><meta class="foundation-mq-medium"><meta class="foundation-mq-small"><style></style>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation_004.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation_002.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation_005.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/foundation.js"></script>
+<script src="Duke%20University%20Mailing%20Lists%20-%20lists_files/responsive-tables.js"></script>
+<script>
+$(
+function () {
+// Loading foundation
+$(document).foundation({
+    topbar: {
+        back_text: '<i class="fa fa-undo"></i> Back'
+    }
+});
+
+    /*Top Button*/ 
+    $(document).on( 'scroll', function(){
+
+            if ($(window).scrollTop() > 100) {
+                    $('.scroll-top-wrapper').addClass('show');
+            } else {
+                    $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+
+    /* Correction of disapeared top-bar-dropdown menu on input lost focus */
+    $('#login-dropdown').removeClass('not-click').on('mouseover', function () {
+        $(this).addClass('hover');
+    }).on('mouseout', function (e) {
+        if (e.relatedTarget && !$('#login-dropdown').has(e.relatedTarget).length) {
+            if($(e.target).is(':input'))
+                $(e.target).blur();
+            
+            $(this).removeClass('hover');
+        }
+    });
+
+    });
+
+
+function scrollToTop() {
+	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+	element = $('body');
+	offset = element.offset();
+	offsetTop = offset.top;
+	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+
+<!-- end head_javascript.tt2 -->
+
+
+<!-- RSS chanel -->
+             <link rel="alternate" type="application/xml" title="RSS Latest lists" href="https://lists.duke.edu/sympa/rss/latest_lists?count=20">
+     <link rel="alternate" type="application/xml" title="RSS Active lists" href="https://lists.duke.edu/sympa/rss/active_lists?count=20">
+        <meta class="foundation-mq-topbar"></head>
+
+<body onload="">
+
+
+
+<div id="top"><a class="displayNone" name="top" href="#content-inner">Skip to Content.</a></div>
+
+<noscript><em>Please activate JavaScript in your web browser</em></noscript>
+
+
+
+    
+
+
+    <!-- $Id: header.tt2 12627 2016-01-13 08:49:54Z sikeda $ -->
+<header>
+
+<nav class="top-bar" data-topbar="" role="navigation">
+    <ul class="title-area large-2 columns show-for-large-up">
+        <li class="name">
+                
+                  <img src="Duke%20University%20Mailing%20Lists%20-%20lists_files/duke_mlm_logo.png" alt="Duke logo">
+                
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Sympa Menu</span></a></li>
+    </ul>
+
+    <ul class="title-area hide-for-large-up">
+        <li class="name">
+                
+                  <img src="Duke%20University%20Mailing%20Lists%20-%20lists_files/duke_mlm_logo.png" alt="Duke logo">
+                
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Sympa Menu</span></a></li>
+    </ul>
+
+<menu class="top-bar-section">
+  <ul class="right">
+        <!-- sympa menu start --> 
+          <!-- $Id: sympa_menu.tt2 12630 2016-01-15 11:02:21Z sympa-authors $ -->
+        
+	
+		<li class=""><a href="https://lists.duke.edu/sympa/home"><i class="fi-home"></i>  Home</a></li>
+		
+	
+		
+	
+				
+		
+		<li class="has-dropdown active not-click">
+			<a href="#"><i class="fa fa-search-plus"></i> Search for List(s)</a>
+			<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)"><i class="fa fa-undo"></i> Back</a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="#"><i class="fa fa-search-plus"></i> Search for List(s)</a></li>
+		
+				
+				<li class=""><a href="https://lists.duke.edu/sympa/search_list_request"><i class="fa fa-search"></i> Search form</a></li>
+				
+				<li class="active"><a href="https://lists.duke.edu/sympa/lists" onclick="show('loading'); hide('content-inner');"><i class="fa fa-list"></i> Index of Lists</a></li>
+				
+				<li class=""><a href="https://lists.duke.edu/sympa/lists_categories" target=""><i class="fa fa-sitemap"></i> Browse lists by categories</a>		
+		
+			</li></ul>
+		</li>
+		
+		
+		
+		<li class="has-dropdown  not-click">
+			<a href="#"><i class="fa fa-life-ring"></i> Support</a>
+			<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)"><i class="fa fa-undo"></i> Back</a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="#"><i class="fa fa-life-ring"></i> Support</a></li>
+		
+				
+				<li class=""><a href="https://lists.duke.edu/sympa/help" title="Documentation"><i class="fa fa-book"></i> Documentation</a></li>
+				
+				<li class=""><a href="https://lists.duke.edu/sympa/help/faq" title="Frequently asked questions"><i class="fa fa-question"></i> FAQ</a></li>
+				
+				<!--<li class=""><a href="mailto:sympa-feedback@listes.renater.fr" data-tooltip aria-haspopup="true" title="Give us feedback about this new Sympa version"><i class="fa fa-comments"></i> Feedback</a></li>-->
+		
+			</ul>
+		</li>
+		
+	
+		
+	
+	
+	
+
+	
+<!-- end sympa_menu.tt2 -->	
+
+        <!-- end of sympa menu-->
+        
+        <!-- login banner start -->
+          <!-- $Id: loginbanner.tt2 12556 2015-12-04 14:58:29Z lumineau $ -->
+
+
+            <li>
+              
+            <form id="use-sso" action="/sympa" method="post"> 
+              <fieldset>	
+              <input type="hidden" name="previous_action" value="">
+              <input type="hidden" name="previous_list" value="">
+              <input type="hidden" name="referer" value="">
+              <input type="hidden" name="list" value="">
+                <input type="hidden" name="action" value="sso_login">
+                
+                  
+                    <input type="hidden" name="auth_service_name" value="shibboleth">
+                    <button type="submit" name="action_sso_login" value="Duke NetID Login"><i class="fa fa-user"></i> Duke NetID Login</button>
+
+                 
+                
+              </fieldset>
+            </form>
+            
+            </li>
+           
+              <li class="divider hide-for-small"></li>
+            
+           
+          <li id="login-dropdown" class="has-dropdown">
+            <a href="#"><i class="fa fa-user"></i> Login</a>
+            <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)"><i class="fa fa-undo"></i> Back</a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="#"><i class="fa fa-user"></i> Login</a></li>
+            <form action="/sympa" method="post">
+              <fieldset>
+              <input type="hidden" name="previous_action" value="">
+              <input type="hidden" name="previous_list" value="">
+              <input type="hidden" name="referer" value="">
+              <input type="hidden" name="list" value="">
+              <input type="hidden" name="action" value="login">
+              <li><label for="email_login">email address:
+              <input type="text" name="email" id="email_login" size="28"></label></li>
+              <li><label for="passwd">password:
+              <input type="password" name="passwd" id="passwd" size="8"></label></li>
+              <li><span><button type="submit" name="action_login" value="Login" onclick="show('loading'); hide('content-inner');"><i class="fa fa-user"></i> Go</button></span></li>
+              </fieldset>
+            </form>
+           
+           <li class="divider hide-for-small"></li>
+            
+              <li><a href="https://lists.duke.edu/sympa/firstpasswd/">First login?</a></li>
+              <li><a href="https://lists.duke.edu/sympa/renewpasswd/">Lost password?</a></li>
+            
+           
+            </ul>
+           </li>
+           
+             
+
+
+
+<!-- end loginbanner.tt2 -->
+
+        <!-- end of login banner-->
+        
+    </ul>
+</menu></nav>
+
+
+<h1 class="row">Duke University Mailing Lists</h1>
+
+
+</header>
+<!-- end header.tt2 -->
+
+
+
+<div id="loading" class="row">
+
+   <h1 id="loadingText"><i class="fa fa-spinner fa-pulse"></i> Please Wait...</h1>
+</div>
+
+    <!-- $Id: aside_menu.tt2 12627 2016-01-13 08:49:54Z sikeda $ -->
+
+  <aside class="medium-3 columns show-for-medium-up">
+  
+  </aside>
+
+
+<!-- for responsive view -->
+
+  
+
+<!-- end aside_menu.tt2 -->
+
+
+    
+    <main id="content-inner" class="row"><a name="content-inner"></a>
+
+      
+      
+
+        <!-- $Id: nav.tt2 12449 2015-10-19 14:53:07Z lumineau $ -->
+
+
+
+
+
+<h2>Index of lists</h2>
+
+<nav class="top-bar" data-topbar="" role="navigation">
+    <ul class="title-area">
+        <li class="name">
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Index of lists</span></a></li>
+    </ul>
+
+<menu class="top-bar-section">
+  <ul class="left">
+
+  
+    <li class="letter"><a href="#a">a</a></li>
+   
+
+  
+    <li class="letter"><a href="#b">b</a></li>
+   
+
+  
+    <li class="letter"><a href="#c">c</a></li>
+   
+
+  
+    <li class="letter"><a href="#d">d</a></li>
+   
+
+  
+    <li class="letter"><a href="#e">e</a></li>
+   
+
+  
+    <li class="letter"><a href="#f">f</a></li>
+   
+
+  
+    <li class="letter"><a href="#g">g</a></li>
+   
+
+  
+    <li class="letter"><a href="#h">h</a></li>
+   
+
+  
+    <li class="letter"><a href="#i">i</a></li>
+   
+
+  
+    <li class="letter"><a href="#j">j</a></li>
+   
+
+  
+    <li class="letter"><a href="#k">k</a></li>
+   
+
+  
+    <li class="letter"><a href="#l">l</a></li>
+   
+
+  
+    <li class="letter"><a href="#m">m</a></li>
+   
+
+  
+    <li class="letter"><a href="#n">n</a></li>
+   
+
+  
+    <li class="nolink letter">o</li>
+  
+
+  
+    <li class="letter"><a href="#p">p</a></li>
+   
+
+  
+    <li class="letter"><a href="#q">q</a></li>
+   
+
+  
+    <li class="letter"><a href="#r">r</a></li>
+   
+
+  
+    <li class="letter"><a href="#s">s</a></li>
+   
+
+  
+    <li class="letter"><a href="#t">t</a></li>
+   
+
+  
+    <li class="nolink letter">u</li>
+  
+
+  
+    <li class="letter"><a href="#v">v</a></li>
+   
+
+  
+    <li class="nolink letter">w</li>
+  
+
+  
+    <li class="nolink letter">x</li>
+  
+
+  
+    <li class="nolink letter">y</li>
+  
+
+  
+    <li class="nolink letter">z</li>
+  
+
+  
+    <li class="nolink letter">others</li>
+  
+
+ <li class="letter">
+  <a href="https://lists.duke.edu/sympa/lists" onclick="show('loading'); hide('content-inner');">All</a> </li>
+  </ul>
+</menu></nav>
+
+
+
+
+
+
+<!-- end nav.tt2 -->
+
+
+        
+        
+        <!-- $Id: lists.tt2 12690 2016-02-21 03:27:38Z sikeda $ -->
+
+
+
+
+
+
+
+
+  
+    
+    <article id="a">
+      <h4 class="letter">a</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/agingcenternews"><script type="text/javascript">
+<!--
+document.write("agingcenternews" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>agingcenternews@duke.edu
+            
+         </a>
+          <p class="listenum">Aging Center News</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/aiea-discuss"><script type="text/javascript">
+<!--
+document.write("aiea" +
+"-" +
+"discuss" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>aiea-discuss@duke.edu
+            
+         </a>
+          <p class="listenum">aiea-discuss</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/alumni-network-staff"><script type="text/javascript">
+<!--
+document.write("alumni" +
+"-" +
+"network" +
+"-" +
+"staff" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>alumni-network-staff@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Alumni Network announcement list for Duke staff</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/applied-math-seminar"><script type="text/javascript">
+<!--
+document.write("applied" +
+"-" +
+"math" +
+"-" +
+"seminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>applied-math-seminar@duke.edu
+            
+         </a>
+          <p class="listenum">duke applied mathematics seminar mailing list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/atlas"><script type="text/javascript">
+<!--
+document.write("atlas" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>atlas@duke.edu
+            
+         </a>
+          <p class="listenum">Adolescents Transitioning to Leadership and Success</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/avizovis"><script type="text/javascript">
+<!--
+document.write("avizovis" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>avizovis@duke.edu
+            
+         </a>
+          <p class="listenum">Avizo Visualization Software User's Group Discussion</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/awmduke"><script type="text/javascript">
+<!--
+document.write("awmduke" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>awmduke@duke.edu
+            
+         </a>
+          <p class="listenum">AWM Duke Chapter</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="b">
+      <h4 class="letter">b</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/basketball-cmte"><script type="text/javascript">
+<!--
+document.write("basketball" +
+"-" +
+"cmte" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>basketball-cmte@duke.edu
+            
+         </a>
+          <p class="listenum">GPSC basketball committee members</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/bassconnections-ehd"><script type="text/javascript">
+<!--
+document.write("bassconnections" +
+"-" +
+"ehd" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>bassconnections-ehd@duke.edu
+            
+         </a>
+          <p class="listenum">Discussion list for students and faculty involved in the EHD theme of Bass Connections</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/bate-papo-brasil"><script type="text/javascript">
+<!--
+document.write("bate" +
+"-" +
+"papo" +
+"-" +
+"brasil" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>bate-papo-brasil@duke.edu
+            
+         </a>
+          <p class="listenum">Portuguese Conversation and Activities</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/becr-mailing"><script type="text/javascript">
+<!--
+document.write("becr" +
+"-" +
+"mailing" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>becr-mailing@duke.edu
+            
+         </a>
+          <p class="listenum">BECR Distribution List</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/biomedicalontology"><script type="text/javascript">
+<!--
+document.write("biomedicalontology" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>biomedicalontology@duke.edu
+            
+         </a>
+          <p class="listenum">Biomedical Ontologies use and development 
+ Subject: To provide a forum for the discussion of ontology-related 
+topics and to announce ontology-related events.  Description: The Duke 
+ontology listserv is open to anyone interested in ontology. The list is 
+intended to serve several purposes: to provide a forum for the 
+discussion of ontology and biomedical ontologies, to announce 
+ontology-related events, and to create a community for triangle-area 
+researchers with an interest in biomedical  ontology.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/birthday-break"><script type="text/javascript">
+<!--
+document.write("birthday" +
+"-" +
+"break" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>birthday-break@duke.edu
+            
+         </a>
+          <p class="listenum">ATC list for casual communication</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/brownstonerush2017"><script type="text/javascript">
+<!--
+document.write("brownstonerush2017" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>brownstonerush2017@duke.edu
+            
+         </a>
+          <p class="listenum">Brownstone Rush 2017</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/brownstone_rush"><script type="text/javascript">
+<!--
+document.write("brownstone_rush" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>brownstone_rush@duke.edu
+            
+         </a>
+          <p class="listenum">Brownstone Rush 2016</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="c">
+      <h4 class="letter">c</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/campout"><script type="text/javascript">
+<!--
+document.write("campout" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>campout@duke.edu
+            
+         </a>
+          <p class="listenum">Campout Participants</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/caspermacupdates"><script type="text/javascript">
+<!--
+document.write("caspermacupdates" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>caspermacupdates@duke.edu
+            
+         </a>
+          <p class="listenum">Macupdate email list for Casper Admins</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/chess"><script type="text/javascript">
+<!--
+document.write("chess" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>chess@duke.edu
+            
+         </a>
+          <p class="listenum">Duke University Chess Club </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/choices"><script type="text/javascript">
+<!--
+document.write("choices" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>choices@duke.edu
+            
+         </a>
+          <p class="listenum">Need a contact list for our research project</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/compsci"><script type="text/javascript">
+<!--
+document.write("compsci" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>compsci@duke.edu
+            
+         </a>
+          <p class="listenum">Information relevant to Computer Science at Duke</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/comsoc"><script type="text/javascript">
+<!--
+document.write("comsoc" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>comsoc@duke.edu
+            
+         </a>
+          <p class="listenum">Computational Social Choice</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/crypto"><script type="text/javascript">
+<!--
+document.write("crypto" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>crypto@duke.edu
+            
+         </a>
+          <p class="listenum">A forum for discussing modern cryptographic practice at Duke.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/cs-econ"><script type="text/javascript">
+<!--
+document.write("cs" +
+"-" +
+"econ" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>cs-econ@duke.edu
+            
+         </a>
+          <p class="listenum">events at the border of computer science and economics</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/cvent_user_group"><script type="text/javascript">
+<!--
+document.write("cvent_user_group" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>cvent_user_group@duke.edu
+            
+         </a>
+          <p class="listenum">Cvent User Group List</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="d">
+      <h4 class="letter">d</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dagpsa"><script type="text/javascript">
+<!--
+document.write("dagpsa" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dagpsa@duke.edu
+            
+         </a>
+          <p class="listenum">DAGPSA Membership Distribution List </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/data_plus_participants"><script type="text/javascript">
+<!--
+document.write("data_plus_participants" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>data_plus_participants@duke.edu
+            
+         </a>
+          <p class="listenum">Data Plus Participants</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dcabd_lab_announcements"><script type="text/javascript">
+<!--
+document.write("dcabd_lab_announcements" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dcabd_lab_announcements@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Center for Autism &amp; Brain Development Lab Announcements</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dcssa"><script type="text/javascript">
+<!--
+document.write("dcssa" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dcssa@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Chinese Students and Scholars Association (DCSSA)</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/ddi-announce"><script type="text/javascript">
+<!--
+document.write("ddi" +
+"-" +
+"announce" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>ddi-announce@duke.edu
+            
+         </a>
+          <p class="listenum">Announce DDI events, CFPs, etc</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dfe"><script type="text/javascript">
+<!--
+document.write("dfe" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dfe@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Financial Economics</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/digital"><script type="text/javascript">
+<!--
+document.write("digital" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>digital@duke.edu
+            
+         </a>
+          <p class="listenum">Promote digital scholarship and digital humanities activities and opportunities at Duke.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dism_duke"><script type="text/javascript">
+<!--
+document.write("dism_duke" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dism_duke@duke.edu
+            
+         </a>
+          <p class="listenum">News about the Duke Initiative on Survey Methodology </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dite2020"><script type="text/javascript">
+<!--
+document.write("dite2020" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dite2020@duke.edu
+            
+         </a>
+          <p class="listenum">DITE</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/divinityhousing"><script type="text/javascript">
+<!--
+document.write("divinityhousing" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>divinityhousing@duke.edu
+            
+         </a>
+          <p class="listenum">Housing discussion for incoming Divinity students</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dkucard"><script type="text/javascript">
+<!--
+document.write("dkucard" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dkucard@duke.edu
+            
+         </a>
+          <p class="listenum">DKUCard Service</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dnme-list"><script type="text/javascript">
+<!--
+document.write("dnme" +
+"-" +
+"list" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dnme-list@duke.edu
+            
+         </a>
+          <p class="listenum">A mailing list for the Duke New Music Ensemble [dnme]</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dppn"><script type="text/javascript">
+<!--
+document.write("dppn" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dppn@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Policy and Politics Network Online Discussion Forum</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/drhmedicalstaff"><script type="text/javascript">
+<!--
+document.write("drhmedicalstaff" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>drhmedicalstaff@duke.edu
+            
+         </a>
+          <p class="listenum">This is an administrative listserv/reply-to group for Duke Regional Hospital medical staff.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duhatchlist"><script type="text/javascript">
+<!--
+document.write("duhatchlist" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duhatchlist@duke.edu
+            
+         </a>
+          <p class="listenum">DUhatch Business Incubator listserv</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duhrrtnurses"><script type="text/javascript">
+<!--
+document.write("duhrrtnurses" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duhrrtnurses@duke.edu
+            
+         </a>
+          <p class="listenum">Rapid Response Email/Text Page List</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duke-apics-dsc"><script type="text/javascript">
+<!--
+document.write("duke" +
+"-" +
+"apics" +
+"-" +
+"dsc" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duke-apics-dsc@duke.edu
+            
+         </a>
+          <p class="listenum">APICS_DSC community mailing list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duke-in-touch"><script type="text/javascript">
+<!--
+document.write("duke" +
+"-" +
+"in" +
+"-" +
+"touch" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duke-in-touch@duke.edu
+            
+         </a>
+          <p class="listenum">Duke in touch information email list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukeama-contact"><script type="text/javascript">
+<!--
+document.write("dukeama" +
+"-" +
+"contact" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukeama-contact@duke.edu
+            
+         </a>
+          <p class="listenum">DukeAMA</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukecardiologyapp"><script type="text/javascript">
+<!--
+document.write("dukecardiologyapp" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukecardiologyapp@duke.edu
+            
+         </a>
+          <p class="listenum">Sends message to all DUH inpatient Cardiology Advanced Practice Providers</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukecaseintern"><script type="text/javascript">
+<!--
+document.write("dukecaseintern" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukecaseintern@duke.edu
+            
+         </a>
+          <p class="listenum">CASE Internship</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukechinesetheater"><script type="text/javascript">
+<!--
+document.write("dukechinesetheater" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukechinesetheater@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Chinese Theater News and Updates</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukecscnewsletter"><script type="text/javascript">
+<!--
+document.write("dukecscnewsletter" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukecscnewsletter@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Center for Smoking Cessation's Newsletter</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukedevs"><script type="text/javascript">
+<!--
+document.write("dukedevs" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukedevs@duke.edu
+            
+         </a>
+          <p class="listenum">Mailing group for the DukeDevs club</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukedisabilityalliance"><script type="text/javascript">
+<!--
+document.write("dukedisabilityalliance" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukedisabilityalliance@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Disability Alliance Contact Address</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukeelectricvehicles"><script type="text/javascript">
+<!--
+document.write("dukeelectricvehicles" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukeelectricvehicles@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Electric Vehicles Team Listserv</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukefilmclub"><script type="text/javascript">
+<!--
+document.write("dukefilmclub" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukefilmclub@duke.edu
+            
+         </a>
+          <p class="listenum">Film Screenings</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukefoodinsecurity"><script type="text/javascript">
+<!--
+document.write("dukefoodinsecurity" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukefoodinsecurity@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Campus Food Insecurity Listserv</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukemba2018_greatchina"><script type="text/javascript">
+<!--
+document.write("dukemba2018_greatchina" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukemba2018_greatchina@duke.edu
+            
+         </a>
+          <p class="listenum">Dukemba2018 Great China</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukemba2019_greatchina"><script type="text/javascript">
+<!--
+document.write("dukemba2019_greatchina" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukemba2019_greatchina@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Fuqua Daytime MBA 2019 Great China</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukemed-student-groups"><script type="text/javascript">
+<!--
+document.write("dukemed" +
+"-" +
+"student" +
+"-" +
+"groups" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukemed-student-groups@duke.edu
+            
+         </a>
+          <p class="listenum">DukeMed Student Organizations and Interest Groups</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukemed_dance"><script type="text/javascript">
+<!--
+document.write("dukemed_dance" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukemed_dance@duke.edu
+            
+         </a>
+          <p class="listenum">Mailing List for Duke Med Hip Hop </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukeopioidcollaboratory"><script type="text/javascript">
+<!--
+document.write("dukeopioidcollaboratory" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukeopioidcollaboratory@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Opioid Collaboratory </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukerad2016"><script type="text/javascript">
+<!--
+document.write("dukerad2016" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukerad2016@duke.edu
+            
+         </a>
+          <p class="listenum">Class list for Duke Radiology residents, class of 2016</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukerad2020"><script type="text/javascript">
+<!--
+document.write("dukerad2020" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukerad2020@duke.edu
+            
+         </a>
+          <p class="listenum">List-serve for new radiology residents</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukeraleighsupplychain-materials"><script type="text/javascript">
+<!--
+document.write("dukeraleighsupplychain" +
+"-" +
+"materials" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukeraleighsupplychain-materials@duke.edu
+            
+         </a>
+          <p class="listenum">Internal mail list to communicate with Duke Raleigh Supply Chain members</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukerelay"><script type="text/javascript">
+<!--
+document.write("dukerelay" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukerelay@duke.edu
+            
+         </a>
+          <p class="listenum">email list for Relay for Life members</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dukeroboticsclub"><script type="text/javascript">
+<!--
+document.write("dukeroboticsclub" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dukeroboticsclub@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Robotics Club</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duketourguides_fall2020interest"><script type="text/javascript">
+<!--
+document.write("duketourguides_fall2020interest" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duketourguides_fall2020interest@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Tour Guides: Fall 2020 Interest</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/duke_ejn_listserv"><script type="text/javascript">
+<!--
+document.write("duke_ejn_listserv" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>duke_ejn_listserv@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Environmental Justice Network Listserve</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/dvs-announce"><script type="text/javascript">
+<!--
+document.write("dvs" +
+"-" +
+"announce" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>dvs-announce@duke.edu
+            
+         </a>
+          <p class="listenum">This list will be used to announce 
+workshops, events, and other matters of interest related to the Center 
+for Data and Visualization Sciences in the Duke Libraries.</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="e">
+      <h4 class="letter">e</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/ecoe"><script type="text/javascript">
+<!--
+document.write("ecoe" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>ecoe@duke.edu
+            
+         </a>
+          <p class="listenum">ECOE Listserv </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/elsi-announcements"><script type="text/javascript">
+<!--
+document.write("elsi" +
+"-" +
+"announcements" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>elsi-announcements@duke.edu
+            
+         </a>
+          <p class="listenum">ELSI Announcements</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/episcopal-center"><script type="text/javascript">
+<!--
+document.write("episcopal" +
+"-" +
+"center" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>episcopal-center@duke.edu
+            
+         </a>
+          <p class="listenum">News and Announcements from the Episcopal Center at Duke</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="f">
+      <h4 class="letter">f</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/fhi-events-news"><script type="text/javascript">
+<!--
+document.write("fhi" +
+"-" +
+"events" +
+"-" +
+"news" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>fhi-events-news@duke.edu
+            
+         </a>
+          <p class="listenum">Mailing list for announcements about 
+humanities-related events at Duke University, maintained by the Franklin
+ Humanities Institute.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/fhi-grad-digital"><script type="text/javascript">
+<!--
+document.write("fhi" +
+"-" +
+"grad" +
+"-" +
+"digital" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>fhi-grad-digital@duke.edu
+            
+         </a>
+          <p class="listenum">Listserv for Franklin Humanities Institiute Graduate Digital Scholarship Initiative</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/fmd-bluebeam-users"><script type="text/javascript">
+<!--
+document.write("fmd" +
+"-" +
+"bluebeam" +
+"-" +
+"users" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>fmd-bluebeam-users@duke.edu
+            
+         </a>
+          <p class="listenum">FMD Bluebeam Users</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/fmd-data-center-event-notification-group"><script type="text/javascript">
+<!--
+document.write("fmd" +
+"-" +
+"data" +
+"-" +
+"center" +
+"-" +
+"event" +
+"-" +
+"notification" +
+"-" +
+"group" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>fmd-data-center-event-notification-group@duke.edu
+            
+         </a>
+          <p class="listenum">FMD Data Center Event Notification Group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/fmd-fo-leadership-team"><script type="text/javascript">
+<!--
+document.write("fmd" +
+"-" +
+"fo" +
+"-" +
+"leadership" +
+"-" +
+"team" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>fmd-fo-leadership-team@duke.edu
+            
+         </a>
+          <p class="listenum">FMD Facilities Operations Leadership Team</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/foodworkinggroup"><script type="text/javascript">
+<!--
+document.write("foodworkinggroup" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>foodworkinggroup@duke.edu
+            
+         </a>
+          <p class="listenum">The Food Working Group </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/freemandining"><script type="text/javascript">
+<!--
+document.write("freemandining" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>freemandining@duke.edu
+            
+         </a>
+          <p class="listenum">Freeman Center Dining </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/french-events"><script type="text/javascript">
+<!--
+document.write("french" +
+"-" +
+"events" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>french-events@duke.edu
+            
+         </a>
+          <p class="listenum">A mailing list for French@Duke events</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="g">
+      <h4 class="letter">g</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/gardenseclipse"><script type="text/javascript">
+<!--
+document.write("gardenseclipse" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>gardenseclipse@duke.edu
+            
+         </a>
+          <p class="listenum">gardenseclipse@duke.edu</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/gpsc_outreach"><script type="text/javascript">
+<!--
+document.write("gpsc_outreach" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>gpsc_outreach@duke.edu
+            
+         </a>
+          <p class="listenum">GPSC Community Outreach Information</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/gradfacseminar"><script type="text/javascript">
+<!--
+document.write("gradfacseminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>gradfacseminar@duke.edu
+            
+         </a>
+          <p class="listenum">Graduate Faculty Seminar</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/gslac"><script type="text/javascript">
+<!--
+document.write("gslac" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>gslac@duke.edu
+            
+         </a>
+          <p class="listenum">GSLAC</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="h">
+      <h4 class="letter">h</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/haitilablist"><script type="text/javascript">
+<!--
+document.write("haitilablist" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>haitilablist@duke.edu
+            
+         </a>
+          <p class="listenum">Haiti Lab Listserv - Keep up to date on the Franklin Humanities Institute's Haiti Lab</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/harelab"><script type="text/javascript">
+<!--
+document.write("harelab" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>harelab@duke.edu
+            
+         </a>
+          <p class="listenum">Hare Lab News</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/harelabweeklyannounce"><script type="text/javascript">
+<!--
+document.write("harelabweeklyannounce" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>harelabweeklyannounce@duke.edu
+            
+         </a>
+          <p class="listenum">Hare Lab Weekly Announcements</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="i">
+      <h4 class="letter">i</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/icslte-announce"><script type="text/javascript">
+<!--
+document.write("icslte" +
+"-" +
+"announce" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>icslte-announce@duke.edu
+            
+         </a>
+          <p class="listenum">ICSLTE mailing list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/icslte-discussion"><script type="text/javascript">
+<!--
+document.write("icslte" +
+"-" +
+"discussion" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>icslte-discussion@duke.edu
+            
+         </a>
+          <p class="listenum">ICSLTE discussion list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/ilife"><script type="text/javascript">
+<!--
+document.write("ilife" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>ilife@duke.edu
+            
+         </a>
+          <p class="listenum">LIFE is a home away from home, a place where you can come and take off your shoes and breathe a little, or a lot.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/indiainitiative"><script type="text/javascript">
+<!--
+document.write("indiainitiative" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>indiainitiative@duke.edu
+            
+         </a>
+          <p class="listenum">Duke India Initiative</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/iphd_students"><script type="text/javascript">
+<!--
+document.write("iphd_students" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>iphd_students@duke.edu
+            
+         </a>
+          <p class="listenum">International Population, Health and Development Seminar Participants</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/islamic-mideast-on-campus"><script type="text/javascript">
+<!--
+document.write("islamic" +
+"-" +
+"mideast" +
+"-" +
+"on" +
+"-" +
+"campus" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>islamic-mideast-on-campus@duke.edu
+            
+         </a>
+          <p class="listenum">Islamic and Middle East studies news and events</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="j">
+      <h4 class="letter">j</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/justspace_public"><script type="text/javascript">
+<!--
+document.write("justspace_public" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>justspace_public@duke.edu
+            
+         </a>
+          <p class="listenum">Just Space Interest List</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="k">
+      <h4 class="letter">k</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/kentcorner"><script type="text/javascript">
+<!--
+document.write("kentcorner" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>kentcorner@duke.edu
+            
+         </a>
+          <p class="listenum">Leadership Education at Duke Divinity</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="l">
+      <h4 class="letter">l</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/learningr"><script type="text/javascript">
+<!--
+document.write("learningr" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>learningr@duke.edu
+            
+         </a>
+          <p class="listenum">Learning R</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/lgbtq_community_advisory_board"><script type="text/javascript">
+<!--
+document.write("lgbtq_community_advisory_board" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>lgbtq_community_advisory_board@duke.edu
+            
+         </a>
+          <p class="listenum">LGBTQ Community Advisory Board</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/linux"><script type="text/javascript">
+<!--
+document.write("linux" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>linux@duke.edu
+            
+         </a>
+          <p class="listenum">Linux@DUKE Mailing List</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/litsci-l"><script type="text/javascript">
+<!--
+document.write("litsci" +
+"-" +
+"l" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>litsci-l@duke.edu
+            
+         </a>
+          <p class="listenum">Society for Lit. and Science members (Law Sch.)</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="m">
+      <h4 class="letter">m</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/math-curious"><script type="text/javascript">
+<!--
+document.write("math" +
+"-" +
+"curious" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>math-curious@duke.edu
+            
+         </a>
+          <p class="listenum">Math events and information  at  Duke</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mba2018_greaterchina"><script type="text/javascript">
+<!--
+document.write("mba2018_greaterchina" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mba2018_greaterchina@duke.edu
+            
+         </a>
+          <p class="listenum">MBA2018 GCC</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mba2019_greaterchina"><script type="text/javascript">
+<!--
+document.write("mba2019_greaterchina" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mba2019_greaterchina@duke.edu
+            
+         </a>
+          <p class="listenum">MBA2019 GCC</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mba2019_section4"><script type="text/javascript">
+<!--
+document.write("mba2019_section4" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mba2019_section4@duke.edu
+            
+         </a>
+          <p class="listenum">Daytime MBA 2019 Section 4</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mcarchives-newsletter"><script type="text/javascript">
+<!--
+document.write("mcarchives" +
+"-" +
+"newsletter" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mcarchives-newsletter@duke.edu
+            
+         </a>
+          <p class="listenum">Medical Center Archives Newsletter</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mcldevices"><script type="text/javascript">
+<!--
+document.write("mcldevices" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mcldevices@duke.edu
+            
+         </a>
+          <p class="listenum">Medical Center Library Device Management</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mclibrary-collections"><script type="text/javascript">
+<!--
+document.write("mclibrary" +
+"-" +
+"collections" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mclibrary-collections@duke.edu
+            
+         </a>
+          <p class="listenum">Collections Vendor Contact</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mclibrary-newsletter"><script type="text/javascript">
+<!--
+document.write("mclibrary" +
+"-" +
+"newsletter" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mclibrary-newsletter@duke.edu
+            
+         </a>
+          <p class="listenum">Medical Center Library Newsletter</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/memoryhistory"><script type="text/javascript">
+<!--
+document.write("memoryhistory" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>memoryhistory@duke.edu
+            
+         </a>
+          <p class="listenum">recipient of email for the commission on history and memory</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mensvball"><script type="text/javascript">
+<!--
+document.write("mensvball" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mensvball@duke.edu
+            
+         </a>
+          <p class="listenum">Listserv for the Men's Volleyball Club at Duke University</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mesplist"><script type="text/javascript">
+<!--
+document.write("mesplist" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mesplist@duke.edu
+            
+         </a>
+          <p class="listenum">Marine Ecosystem Services Partnership</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/microtheory"><script type="text/javascript">
+<!--
+document.write("microtheory" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>microtheory@duke.edu
+            
+         </a>
+          <p class="listenum">List is for microtheory lunches</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/microtheoryseminar"><script type="text/javascript">
+<!--
+document.write("microtheoryseminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>microtheoryseminar@duke.edu
+            
+         </a>
+          <p class="listenum">A list for members of the Microeconomics Theory group at Duke, UNC, and NC State</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mlstudygroup"><script type="text/javascript">
+<!--
+document.write("mlstudygroup" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mlstudygroup@duke.edu
+            
+         </a>
+          <p class="listenum">Machine Learning Study Group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/mms-job-seekers-list"><script type="text/javascript">
+<!--
+document.write("mms" +
+"-" +
+"job" +
+"-" +
+"seekers" +
+"-" +
+"list" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>mms-job-seekers-list@duke.edu
+            
+         </a>
+          <p class="listenum">MMS Job Seekers List Serve</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/moral_ai"><script type="text/javascript">
+<!--
+document.write("moral_ai" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>moral_ai@duke.edu
+            
+         </a>
+          <p class="listenum">moral artificial intelligence</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/murthydigitalstudio"><script type="text/javascript">
+<!--
+document.write("murthydigitalstudio" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>murthydigitalstudio@duke.edu
+            
+         </a>
+          <p class="listenum">create public announcement list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/musgrads-composers"><script type="text/javascript">
+<!--
+document.write("musgrads" +
+"-" +
+"composers" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>musgrads-composers@duke.edu
+            
+         </a>
+          <p class="listenum">A listserv for Duke graduate composition students &amp; faculty</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="n">
+      <h4 class="letter">n</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/nesp-community"><script type="text/javascript">
+<!--
+document.write("nesp" +
+"-" +
+"community" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>nesp-community@duke.edu
+            
+         </a>
+          <p class="listenum">NESP discussions</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/neurogenetics"><script type="text/javascript">
+<!--
+document.write("neurogenetics" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>neurogenetics@duke.edu
+            
+         </a>
+          <p class="listenum">Neurogenetics work-in-progress meetings</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/neurohumanities"><script type="text/javascript">
+<!--
+document.write("neurohumanities" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>neurohumanities@duke.edu
+            
+         </a>
+          <p class="listenum">A group for those interested in the intersection of the humanities and the neurosciences.</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+  
+    
+    <article id="p">
+      <h4 class="letter">p</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/parasitology"><script type="text/javascript">
+<!--
+document.write("parasitology" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>parasitology@duke.edu
+            
+         </a>
+          <p class="listenum">For Coursera project team on the Parasitology in Africa course.</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/pcig"><script type="text/javascript">
+<!--
+document.write("pcig" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>pcig@duke.edu
+            
+         </a>
+          <p class="listenum">Duke University School of Medicine: Palliative Care Interest Group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/pclt2023"><script type="text/javascript">
+<!--
+document.write("pclt2023" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>pclt2023@duke.edu
+            
+         </a>
+          <p class="listenum">PCLT Class of 2023</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/photos"><script type="text/javascript">
+<!--
+document.write("photos" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>photos@duke.edu
+            
+         </a>
+          <p class="listenum">photos@duke.edu</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/physics-colloquium"><script type="text/javascript">
+<!--
+document.write("physics" +
+"-" +
+"colloquium" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>physics-colloquium@duke.edu
+            
+         </a>
+          <p class="listenum">Subscribers to Physics Colloquium Announcements</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/pibetaphi2018"><script type="text/javascript">
+<!--
+document.write("pibetaphi2018" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>pibetaphi2018@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Pi Beta Phi Class of 2018 List Serve</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/podcast-ml"><script type="text/javascript">
+<!--
+document.write("podcast" +
+"-" +
+"ml" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>podcast-ml@duke.edu
+            
+         </a>
+          <p class="listenum">Duke University Marine Lab Podcast Mailing List</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/politicaltheology"><script type="text/javascript">
+<!--
+document.write("politicaltheology" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>politicaltheology@duke.edu
+            
+         </a>
+          <p class="listenum">Events, courses &amp; initiatives related to political theology </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/portfolio-news"><script type="text/javascript">
+<!--
+document.write("portfolio" +
+"-" +
+"news" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>portfolio-news@duke.edu
+            
+         </a>
+          <p class="listenum">Events and News -- Portfolio@Duke</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/prattmastershousing2020"><script type="text/javascript">
+<!--
+document.write("prattmastershousing2020" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>prattmastershousing2020@duke.edu
+            
+         </a>
+          <p class="listenum">Pratt Master's Housing 2020</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/prebiotics"><script type="text/javascript">
+<!--
+document.write("prebiotics" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>prebiotics@duke.edu
+            
+         </a>
+          <p class="listenum">General contact email for clinical trial enrollment</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/prmo-kernodlerealmed"><script type="text/javascript">
+<!--
+document.write("prmo" +
+"-" +
+"kernodlerealmed" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>prmo-kernodlerealmed@duke.edu
+            
+         </a>
+          <p class="listenum">Email for Kernodle Real Med remit files</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/probability-seminar"><script type="text/javascript">
+<!--
+document.write("probability" +
+"-" +
+"seminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>probability-seminar@duke.edu
+            
+         </a>
+          <p class="listenum">Duke probability seminar list</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="q">
+      <h4 class="letter">q</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/qualitative-medical"><script type="text/javascript">
+<!--
+document.write("qualitative" +
+"-" +
+"medical" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>qualitative-medical@duke.edu
+            
+         </a>
+          <p class="listenum">Qualitative researchers working in medical field</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="r">
+      <h4 class="letter">r</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/recmemberships-list"><script type="text/javascript">
+<!--
+document.write("recmemberships" +
+"-" +
+"list" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>recmemberships-list@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Recreation &amp; Physical Education's Membership Information</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/rl_reading_group"><script type="text/javascript">
+<!--
+document.write("rl_reading_group" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>rl_reading_group@duke.edu
+            
+         </a>
+          <p class="listenum">Reinforcement Learning Reading Group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/robotics-news"><script type="text/javascript">
+<!--
+document.write("robotics" +
+"-" +
+"news" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>robotics-news@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Robotics announcements list</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="s">
+      <h4 class="letter">s</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/scholars-announcements"><script type="text/javascript">
+<!--
+document.write("scholars" +
+"-" +
+"announcements" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>scholars-announcements@duke.edu
+            
+         </a>
+          <p class="listenum">Scholars@Duke Announcements</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/scholars-faculty-announcements"><script type="text/javascript">
+<!--
+document.write("scholars" +
+"-" +
+"faculty" +
+"-" +
+"announcements" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>scholars-faculty-announcements@duke.edu
+            
+         </a>
+          <p class="listenum">Direct Faculty Announcements from the Scholars@Duke Team</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/scmts-pyxis"><script type="text/javascript">
+<!--
+document.write("scmts" +
+"-" +
+"pyxis" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>scmts-pyxis@duke.edu
+            
+         </a>
+          <p class="listenum">SCM Technology Systems Team</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/scohp"><script type="text/javascript">
+<!--
+document.write("scohp" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>scohp@duke.edu
+            
+         </a>
+          <p class="listenum">Student Collaborative on Health Policy </p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/seelrc"><script type="text/javascript">
+<!--
+document.write("seelrc" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>seelrc@duke.edu
+            
+         </a>
+          <p class="listenum">SEELRC</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/singaporeans"><script type="text/javascript">
+<!--
+document.write("singaporeans" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>singaporeans@duke.edu
+            
+         </a>
+          <p class="listenum">Singapore Students' Association - for Singaporeans studying in Duke</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sinsorders"><script type="text/javascript">
+<!--
+document.write("sinsorders" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sinsorders@duke.edu
+            
+         </a>
+          <p class="listenum">List is for lab members to make lab requests and submitt orders</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/slate-support"><script type="text/javascript">
+<!--
+document.write("slate" +
+"-" +
+"support" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>slate-support@duke.edu
+            
+         </a>
+          <p class="listenum">Support address for Graduate/Professional Programs Slate</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sncf"><script type="text/javascript">
+<!--
+document.write("sncf" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sncf@duke.edu
+            
+         </a>
+          <p class="listenum">Scholars for North Carolina's Future</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sncf-grads-list"><script type="text/javascript">
+<!--
+document.write("sncf" +
+"-" +
+"grads" +
+"-" +
+"list" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sncf-grads-list@duke.edu
+            
+         </a>
+          <p class="listenum">Scholars for North Carolina's Future Graduate Committee List</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/southeastern-probability-conference"><script type="text/javascript">
+<!--
+document.write("southeastern" +
+"-" +
+"probability" +
+"-" +
+"conference" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>southeastern-probability-conference@duke.edu
+            
+         </a>
+          <p class="listenum">Mailing list for the Southeastern Probability Conference (SEPC)</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/spanish"><script type="text/javascript">
+<!--
+document.write("spanish" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>spanish@duke.edu
+            
+         </a>
+          <p class="listenum">Please create a spanish@duke.edu list</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/speakerscommittee"><script type="text/javascript">
+<!--
+document.write("speakerscommittee" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>speakerscommittee@duke.edu
+            
+         </a>
+          <p class="listenum">History Dept Speakers' Committee Funds</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/spire"><script type="text/javascript">
+<!--
+document.write("spire" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>spire@duke.edu
+            
+         </a>
+          <p class="listenum">SPIRE Fellows Email address</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/stemwrite19"><script type="text/javascript">
+<!--
+document.write("stemwrite19" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>stemwrite19@duke.edu
+            
+         </a>
+          <p class="listenum">listserv for 2019 STEMwrite Summer Institute participants</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/stingar"><script type="text/javascript">
+<!--
+document.write("stingar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>stingar@duke.edu
+            
+         </a>
+          <p class="listenum">List for discussion of the STINGAR project</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/subleases_list"><script type="text/javascript">
+<!--
+document.write("subleases_list" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>subleases_list@duke.edu
+            
+         </a>
+          <p class="listenum">Trinity Commons sublease for one of 2b2b</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sublease_2b1b_poplar"><script type="text/javascript">
+<!--
+document.write("sublease_2b1b_poplar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sublease_2b1b_poplar@duke.edu
+            
+         </a>
+          <p class="listenum">Sublease 2B/1B Apartment in Poplar West, $450/month/per person</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sustain-e"><script type="text/javascript">
+<!--
+document.write("sustain" +
+"-" +
+"e" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sustain-e@duke.edu
+            
+         </a>
+          <p class="listenum">Env. sustainability announcements</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/sweeneytoddcast"><script type="text/javascript">
+<!--
+document.write("sweeneytoddcast" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>sweeneytoddcast@duke.edu
+            
+         </a>
+          <p class="listenum">Sweeney Todd Cast</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+    <article id="t">
+      <h4 class="letter">t</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/t-agg_announcements"><script type="text/javascript">
+<!--
+document.write("t" +
+"-" +
+"agg_announcements" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>t-agg_announcements@duke.edu
+            
+         </a>
+          <p class="listenum">An annoucement list for the T-AGG group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tadpole"><script type="text/javascript">
+<!--
+document.write("tadpole" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tadpole@duke.edu
+            
+         </a>
+          <p class="listenum">Repairing simple electronic toys and devices for people with developmental disabilities</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/talentdevteam"><script type="text/javascript">
+<!--
+document.write("talentdevteam" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>talentdevteam@duke.edu
+            
+         </a>
+          <p class="listenum">Website Question</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tedxdukeupdates"><script type="text/javascript">
+<!--
+document.write("tedxdukeupdates" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tedxdukeupdates@duke.edu
+            
+         </a>
+          <p class="listenum">TEDxDuke Conference</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tiss-ic-cae"><script type="text/javascript">
+<!--
+document.write("tiss" +
+"-" +
+"ic" +
+"-" +
+"cae" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tiss-ic-cae@duke.edu
+            
+         </a>
+          <p class="listenum">tiss-ic-cae</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/transitionworkgroup"><script type="text/javascript">
+<!--
+document.write("transitionworkgroup" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>transitionworkgroup@duke.edu
+            
+         </a>
+          <p class="listenum">Transition Work Group</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tree"><script type="text/javascript">
+<!--
+document.write("tree" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tree@duke.edu
+            
+         </a>
+          <p class="listenum">Triangle Resource and Envrionmental Economics</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tree_seminar"><script type="text/javascript">
+<!--
+document.write("tree_seminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tree_seminar@duke.edu
+            
+         </a>
+          <p class="listenum">Triangle Resource and Envrionmental Economics</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/trht"><script type="text/javascript">
+<!--
+document.write("trht" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>trht@duke.edu
+            
+         </a>
+          <p class="listenum">TRHT Email Box</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/tunl-seminar"><script type="text/javascript">
+<!--
+document.write("tunl" +
+"-" +
+"seminar" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>tunl-seminar@duke.edu
+            
+         </a>
+          <p class="listenum">TUNL Seminar</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+  
+    
+    <article id="v">
+      <h4 class="letter">v</h4>
+
+      <ul class="listenum">
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/vaxvolunteers"><script type="text/javascript">
+<!--
+document.write("vaxvolunteers" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>vaxvolunteers@duke.edu
+            
+         </a>
+          <p class="listenum">Duke Vaccination Clinic Volunteers</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/vision4nkorea"><script type="text/javascript">
+<!--
+document.write("vision4nkorea" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>vision4nkorea@duke.edu
+            
+         </a>
+          <p class="listenum">Vision for North Korea - a listserv and contact e-mail address</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/visualization"><script type="text/javascript">
+<!--
+document.write("visualization" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>visualization@duke.edu
+            
+         </a>
+          <p class="listenum">Visualization Friday Forum seminar announcement</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/vqa-qcms"><script type="text/javascript">
+<!--
+document.write("vqa" +
+"-" +
+"qcms" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>vqa-qcms@duke.edu
+            
+         </a>
+          <p class="listenum">vqa orders</p>
+        </li>
+      
+        <li class="listenum">
+          <a href="https://lists.duke.edu/sympa/info/vr2learn"><script type="text/javascript">
+<!--
+document.write("vr2learn" +
+"@" +
+"duke" +
+"." +
+"edu")
+// -->
+</script>vr2learn@duke.edu
+            
+         </a>
+          <p class="listenum">For people interested in how virtual reality and augmented reality can be appplied at Duke for teaching and learning.</p>
+        </li>
+      
+      </ul>
+    <span class="divider"></span>
+    </article>
+      
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+   
+
+  <br>
+
+  
+
+
+
+<script>
+<!--
+  $(
+    'a[href="#a"], a[href="#b"], a[href="#c"], a[href="#d"], a[href="#e"], a[href="#f"], a[href="#g"], a[href="#h"], a[href="#i"], a[href="#j"], a[href="#k"], a[href="#l"], a[href="#m"], a[href="#n"], a[href="#p"], a[href="#q"], a[href="#r"], a[href="#s"], a[href="#t"], a[href="#v"]'
+  ).on('click', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    id = $(this).attr('href').substr(1);
+    $( '#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m, #n, #p, #q, #r, #s, #t, #v' ).hide();
+    $('#' + id).show();
+    return false;
+  });
+//-->
+</script>
+
+<!-- end lists.tt2 -->
+
+
+ 
+
+
+</main><!-- End content-inner -->
+    
+
+<div class="displayNone"><a href="#top">Top of Page</a></div>
+
+<div class="scroll-top-wrapper show">
+	<span class="scroll-top-inner">
+		<i class="fa fa-2x fa-arrow-circle-up"></i>
+	</span>
+</div>
+
+<!-- $Id: footer.tt2 12224 2015-06-17 13:29:15Z sikeda $ -->
+<footer role="contentinfo">
+
+<img src="Duke%20University%20Mailing%20Lists%20-%20lists_files/favicon_sympa.png" alt="SYMPA logo" width="20" height="20"> 
+
+<a href="http://www.sympa.org/"> Powered by Sympa </a>
+</footer>
+<!-- end footer.tt2 -->
+
+
+
+
+
+
+
+</body><!-- end main.tt2 --></html>
