@@ -5,7 +5,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
+
+.search input[type="search"] {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #eaeaea;
+  height: 5vh;
+  font-size: 20px;
+  border-radius: 24px;
+  display: flex;
+}
+
+.search input[type="search"]:focus {
+  box-shadow: 0px 0px 1.5px;
+  outline: none;
 }
 
 .main {
